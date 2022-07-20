@@ -7,6 +7,8 @@ namespace SnakeLadderSimulator
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To SnakeLadder:");
+
+            
         }
     }
 }
