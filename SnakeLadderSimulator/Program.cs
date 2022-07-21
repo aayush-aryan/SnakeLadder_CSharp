@@ -8,7 +8,7 @@ namespace SnakeLadderSimulator
         {
             Console.WriteLine("Welcome To SnakeLadder:");
 
-            
+            SnakeLadderGame.GamePlay();
         }
     }
 }
