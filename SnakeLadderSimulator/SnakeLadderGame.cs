@@ -21,7 +21,7 @@ namespace SnakeLadderSimulator
         /// <summary>
         /// method rule for Game
         /// </summary>
-        public static void GamePlay()
+        public static int GamePlay(int player)
         {
             int diceNumber, optionCheck;
 
@@ -59,9 +59,9 @@ namespace SnakeLadderSimulator
                         Position = currentPosition;
                         break;
                 }
-                Console.WriteLine("player_Current_Position :" + Position);
             }
             Console.WriteLine("dice Count :" + diceCount);
+            return diceCount;
         }
     }
 }
