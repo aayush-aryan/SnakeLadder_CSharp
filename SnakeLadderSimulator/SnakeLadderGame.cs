@@ -6,8 +6,9 @@ namespace SnakeLadderSimulator
 {
     public class SnakeLadderGame
     {
-        static int Position = 0; 
+        static int Position = 0;
         const int Ladder = 1, Snake = 2, WinPosition = 100;
+        static int currentPosition;
         /// <summary>
         /// rolling die Method
         /// </summary>
@@ -22,31 +23,44 @@ namespace SnakeLadderSimulator
         /// </summary>
         public static void GamePlay()
         {
-            int diceNumber = 0, optionCheck = 0;
+            int diceNumber, optionCheck;
 
-            while (Position<=WinPosition)
+            for(Position=0;Position<WinPosition;Position++)
             {
                  diceNumber = RandomValueGenerator(1, 7);
                  optionCheck = RandomValueGenerator(0, 3);
+
                 switch (optionCheck)
                 {
                     case Ladder:
-                        Position = Position + diceNumber;
+                        currentPosition = Position + diceNumber;
+                        if (currentPosition > 100)
+                        {
+                            Position = Position+0;
+                        }
+                        else
+                        {
+                            Position = currentPosition;
+                        } 
                         break;
                     case Snake:
-                        Position = Position - diceNumber;
-                        if (Position < 0)
+                        currentPosition = Position - diceNumber;
+                        if (currentPosition <= 0)
                         {
                             Position = 0;
                         }
+                        else
+                        {
+                            Position = currentPosition;
+                        }
                         break;
                     default:
-                        Position = Position+0;
+                        Position = currentPosition;
                         break;
                 }
+                Console.WriteLine("player_Current_Position :" + Position);
             }
             
-            Console.WriteLine("player_Current_Position :" + Position);
         }
     }
 }
