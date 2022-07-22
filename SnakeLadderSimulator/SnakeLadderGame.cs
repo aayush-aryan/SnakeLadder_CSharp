@@ -8,7 +8,7 @@ namespace SnakeLadderSimulator
     {
         static int Position = 0;
         const int Ladder = 1, Snake = 2, WinPosition = 100;
-        static int currentPosition;
+        static int currentPosition, diceCount=0;
         /// <summary>
         /// rolling die Method
         /// </summary>
@@ -29,6 +29,7 @@ namespace SnakeLadderSimulator
             {
                  diceNumber = RandomValueGenerator(1, 7);
                  optionCheck = RandomValueGenerator(0, 3);
+                 diceCount++;
 
                 switch (optionCheck)
                 {
@@ -60,7 +61,7 @@ namespace SnakeLadderSimulator
                 }
                 Console.WriteLine("player_Current_Position :" + Position);
             }
-            
+            Console.WriteLine("dice Count :" + diceCount);
         }
     }
 }
